@@ -1,0 +1,94 @@
+<div class="modal-holding-outer-container" (click)="closeModal()" style="">
+  <div
+    class="modal-holding-container"
+    (click)="$event.stopPropagation()"
+    style="
+      background-color: #2d2d2d;
+      color: white;
+      padding-left: 10px;
+      padding-right: 10px;
+    "
+  >
+    <img
+      src="/assets/img/goals/goals.png"
+      style="width: 12vh; margin-top: 17px"
+    />
+    <h1 style="text-decoration: underline; margin-top: 2px; font-size: 32px">
+      {{ goalInfo.goalTitle }}
+    </h1>
+    <h3 style="text-decoration: underline; margin-top: 0px">Details:</h3>
+    <h4 style="margin-top: 8px">
+      {{ goalInfo.goalDescription }}
+    </h4>
+
+    <h3 style="text-decoration: underline">Goal Stats</h3>
+    <h4 style="margin-top: 2px">
+      Current Status:
+      <span
+        [ngClass]="
+          goalInfo.goalStatus === 'complete' ? 'complete' : 'incomplete'
+        "
+      >
+        {{ goalInfo.goalStatus.toUpperCase() }}</span
+      ><br />
+      Goal Type:
+      <span style="color: #a397f4"> {{ goalInfo.goalType.toUpperCase() }}</span
+      ><br />
+      Goal Added On:
+      <span style="color: #f5bb76"> {{ displayDate }}</span
+      ><br />
+      Goal achieved on
+      <span style="color: #97d291">
+        {{ goalInfo.statCompletedCount }} days</span
+      >
+      <br />
+    </h4>
+  </div>
+  <div
+    *ngIf="goalInfo.goalStatus === 'in-progress'"
+    class="ui-modal-buttons-holding-container"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="ui-modal-small-button" style="padding-left: 2vh">
+      <ui-img-button
+        [buttonInfo]="backButton"
+        [buttonSize]="'small'"
+        (buttonClicked)="buttonClicked(backButton.buttonName)"
+      ></ui-img-button>
+    </div>
+    <div class="ui-modal-big-button">
+      <ui-img-button
+        [buttonInfo]="completeGoalButton"
+        [buttonSize]="'large'"
+        (buttonClicked)="buttonClicked(completeGoalButton.buttonName)"
+      ></ui-img-button>
+    </div>
+    <div class="ui-modal-small-button" style="padding-right: 2vh">
+      <ui-img-button
+        [buttonInfo]="deleteGoalButton"
+        [buttonSize]="'small'"
+        (buttonClicked)="buttonClicked(deleteGoalButton.buttonName)"
+      ></ui-img-button>
+    </div>
+  </div>
+  <div
+    *ngIf="goalInfo.goalStatus === 'complete'"
+    class="ui-modal-buttons-holding-container"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="ui-modal-small-button" style="padding-left: 2vh">
+      <ui-img-button
+        [buttonInfo]="backButton"
+        [buttonSize]="'small'"
+        (buttonClicked)="buttonClicked(backButton.buttonName)"
+      ></ui-img-button>
+    </div>
+    <div class="ui-modal-big-button">
+      <ui-img-button
+        [buttonInfo]="deleteGoalButton"
+        [buttonSize]="'large'"
+        (buttonClicked)="buttonClicked(deleteGoalButton.buttonName)"
+      ></ui-img-button>
+    </div>
+  </div>
+</div>

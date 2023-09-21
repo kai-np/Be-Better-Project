@@ -1,0 +1,63 @@
+<div
+  class="app-page-container"
+  style="
+    display: flex;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+  "
+>
+  <div class="app-header-bar" style="height: 8%; width: 100%; display: flex">
+    <ui-page-header
+      [pageName]="'Journals'"
+      [pageColour]="'#2c927f'"
+    ></ui-page-header>
+  </div>
+  <div
+    class="app-page-content"
+    style="
+      background-color: #2f2e41;
+      width: 100%;
+      height: 80%;
+      display: flex;
+
+      overflow: scroll;
+      flex-direction: column;
+    "
+  >
+    <div
+      class="journal-button-holding-container"
+      style="
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-evenly;
+      "
+    >
+      <ui-extra-large-rectangle-button
+        [buttonInfo]="gratitudeJournalButton"
+        (buttonClicked)="buttonClicked($event)"
+      ></ui-extra-large-rectangle-button>
+
+      <ui-extra-large-rectangle-button
+        [buttonInfo]="personalJournalButton"
+        (buttonClicked)="buttonClicked($event)"
+      ></ui-extra-large-rectangle-button>
+
+      <ui-extra-large-rectangle-button
+        [buttonInfo]="publicJournalButton"
+        (buttonClicked)="buttonClicked($event)"
+      ></ui-extra-large-rectangle-button>
+    </div>
+  </div>
+  <div
+    class="app-nav-menu"
+    style="background-color: rgb(0, 0, 0); width: 100%; height: 12%"
+  >
+    <ui-app-footer></ui-app-footer>
+  </div>
+</div>

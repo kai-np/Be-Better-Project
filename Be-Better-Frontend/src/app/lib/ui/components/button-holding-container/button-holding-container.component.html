@@ -1,0 +1,40 @@
+<div
+  class="app-button-shelf-holding-container"
+  style="
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  "
+>
+  <div
+    class="app-button-shelf-title-container"
+    style="display: flex; width: 90%; height: auto; padding-left: 2vw"
+  >
+    <h3 style="color: rgb(255, 255, 255)">{{ shelfInfo.shelfTitle }}</h3>
+  </div>
+  <div
+    class="app-button-shelf-inner-container"
+    style="
+      display: flex;
+      width: 90%;
+      height: auto;
+      background-color: {{ shelfInfo.shelfColour }};
+      border-radius: 15px;
+      justify-content: space-evenly;
+    "
+  >
+    <div
+      class="app-button-shelf-button-container"
+      style="display: flex; width: 25%; height: auto"
+      *ngFor="let buttonInfo of shelfButtons"
+    >
+      <ui-img-button
+        [buttonInfo]="buttonInfo"
+        (buttonClicked)="buttonClicked.emit($event)"
+      ></ui-img-button>
+    </div>
+  </div>
+</div>

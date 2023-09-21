@@ -1,0 +1,99 @@
+<div
+  class="modal-holding-outer-container"
+  (click)="closeModal()"
+  style="justify-content: space-evenly"
+>
+  <div
+    class="modal-holding-container"
+    (click)="$event.stopPropagation()"
+    style="
+      background-color: #f68f56;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: white;
+      border-bottom-right-radius: 49px;
+      border-bottom-left-radius: 49px;
+      padding-bottom: 0px;
+    "
+  >
+    <img
+      src="/assets/img/health/medal.png"
+      style="width: 100px; margin-top: 10px"
+    />
+    <h5 style="text-decoration: underline; margin-top: 5px">
+      {{ activityInfo.excerciseType.toUpperCase() }} | {{ displayDate }}
+    </h5>
+    <h1 style="text-decoration: underline; margin-top: 2px">
+      {{ activityInfo.excerciseTitle }}
+    </h1>
+
+    <h2 style="margin-top: 2px">
+      {{ activityInfo.excerciseDescription }}
+    </h2>
+
+    <div
+      style="display: flex; width: 90%; margin-top: 10px; margin-bottom: 10px"
+    >
+      <div
+        style="
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        "
+      >
+        <h5 style="text-align: left; margin-top: 0px; margin-bottom: 2px">
+          Time Spent (min)
+        </h5>
+        <input
+          type="text"
+          style="width: 80%; background-color: black; color: white"
+          class="small-text-input"
+          placeholder="30"
+          value="{{ activityInfo.timeSpent }}"
+          disabled
+          #activityTimeSpent
+        />
+      </div>
+
+      <div
+        style="
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        "
+      >
+        <h5 style="text-align: left; margin-top: 0px; margin-bottom: 2px">
+          Metric (optional)
+        </h5>
+        <input
+          type="text"
+          style="width: 80%; background-color: black; color: white"
+          class="small-text-input"
+          placeholder="5KM"
+          value="{{ activityInfo.metric }}"
+          disabled
+          #activityMetric
+        />
+      </div>
+    </div>
+    <div class="ui-modal-big-button">
+      <ui-img-button
+        [buttonInfo]="closeButton"
+        [buttonSize]="'large'"
+        (buttonClicked)="buttonClicked('closeModal')"
+      ></ui-img-button>
+    </div>
+  </div>
+  <div
+    class="ui-modal-buttons-holding-container"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="ui-modal-small-button" style="padding-left: 2vh"></div>
+    <div class="ui-modal-big-button"></div>
+    <div class="ui-modal-small-button" style="padding-right: 2vh"></div>
+  </div>
+</div>

@@ -1,0 +1,111 @@
+<div class="modal-holding-outer-container" (click)="closeModal()" style="">
+  <div
+    class="modal-holding-container"
+    (click)="$event.stopPropagation()"
+    style="
+      background-color: #2d2d2d;
+      color: white;
+      padding-left: 10px;
+      padding-right: 10px;
+    "
+  >
+    <img
+      src="/assets/img/goals/goals.png"
+      style="width: 12vh; margin-top: 17px"
+    />
+    <h1 style="text-decoration: underline; margin-top: 2px">ADD GOAL</h1>
+    <h3 style="text-decoration: underline; margin-top: 0px">
+      Goal Frequency + Type
+    </h3>
+    <h4 style="margin-top: 2px">
+      Daily goals will repeat everyday and you will get a reminder everyday.
+      Weekly goals are the same but every week... Short/long term goals are non
+      time specific things you’re working towards.
+    </h4>
+    <!-- 
+    <select #frequency name="frequency" style="font-size: 19px;" class="selector-option" id="frequency">
+      <option value="once">Once</option>
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+    </select>   
+  -->
+
+    <select
+      #goalType
+      name="type"
+      class="selector-option"
+      style="margin-top: 10px; font-size: 19px"
+      id="type"
+    >
+      <option *ngIf="!fitnessOnly" value="default">Standard</option>
+      <option *ngIf="!fitnessOnly" value="shortTerm">Short term</option>
+      <option *ngIf="!fitnessOnly" value="longTerm">Long Term</option>
+      <option value="fitness">Fitness Goal</option>
+    </select>
+    <h3 style="text-decoration: underline">Goal Title</h3>
+    <h4 style="margin-top: 2px">
+      This is your goal. Condense it into a short sentence.
+    </h4>
+
+    <input
+      type="text"
+      class="small-text-input"
+      value=""
+      style="
+        font-size: 19px;
+        border: 3px #da056b solid;
+        background-color: black;
+        color: white;
+      "
+      placeholder="Meditate for 20 minutes... go for a walk..."
+      #goalTitle
+    />
+
+    <h3 style="text-decoration: underline">Goal Description</h3>
+    <h4 style="margin-top: 2px">
+      Here you can elaborate on your goal. Specifics, how you’re gonna complete
+      it, sub goals etc...
+    </h4>
+
+    <textarea
+      class="large-text-input"
+      style="
+        border: 3px #da056b solid;
+        background-color: black;
+        color: white;
+        font-size: 19px;
+      "
+      value=""
+      placeholder="Meditate for 20 minutes... go for a walk..."
+      #goalDescription
+    ></textarea>
+  </div>
+  <div
+    class="ui-modal-buttons-holding-container"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="ui-modal-small-button" style="padding-left: 2vh">
+      <ui-img-button
+        [buttonInfo]="cancelButton"
+        [buttonSize]="'small'"
+        (buttonClicked)="buttonClicked($event)"
+      ></ui-img-button>
+    </div>
+    <div class="ui-modal-big-button">
+      <ui-img-button
+        [buttonInfo]="addGoalButton"
+        [buttonSize]="'large'"
+        (buttonClicked)="
+          buttonClicked($event, {
+            goalFrequency: 'once',
+            goalType: goalType.value,
+            goalTitle: goalTitle.value,
+            goalDescription: goalDescription.value
+          })
+        "
+      ></ui-img-button>
+    </div>
+    <div class="ui-modal-small-button" style="padding-right: 2vh"></div>
+  </div>
+</div>

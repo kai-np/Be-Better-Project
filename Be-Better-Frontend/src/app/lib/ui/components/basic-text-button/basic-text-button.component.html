@@ -1,0 +1,19 @@
+<a
+  class="image-button-holding-continer"
+  style="
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 1vh;
+    background-color: {{ buttonInfo.backgroundColour }};
+      border: solid white 3px;
+      border-radius: 15px;
+      justify-content: center;
+  "
+  (click)="buttonClickedEmit(buttonInfo.buttonName)"
+>
+  <h4 style="margin-top: 0px; color: white">{{ buttonInfo.buttonText }}</h4>
+</a>

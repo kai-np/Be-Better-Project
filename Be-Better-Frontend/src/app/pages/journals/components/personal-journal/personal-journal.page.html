@@ -1,0 +1,129 @@
+<div
+  class="app-page-container"
+  style="
+    display: flex;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+  "
+>
+  <div class="app-header-bar" style="height: 8%; width: 100%; display: flex">
+    <ui-page-header
+      [pageName]="'Personal Journals'"
+      [pageColour]="'#E71279'"
+    ></ui-page-header>
+  </div>
+  <div
+    class="app-page-content"
+    style="
+      background-color: #2f2e41;
+      width: 100%;
+      height: 80%;
+      display: flex;
+
+      overflow: scroll;
+      flex-direction: column;
+    "
+  >
+    <div
+      class="journal-heading-holding-container"
+      style="
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      "
+    >
+      <h1
+        style="
+          text-decoration: underline;
+          margin-top: 2px;
+          font-size: 25px;
+          margin-top: 2vh;
+        "
+      >
+        MY PERSONAL JOURNAL
+      </h1>
+
+      <h1
+        style="
+          margin-top: 2px;
+          font-size: 20px;
+          margin-left: 1vh;
+          margin-right: 1vh;
+        "
+      >
+        Write about your day, how you’re feeling, something that happened,
+        friends... anything. These journals are 100% private, only you can view
+        them.<br /><br />
+        Personal journal entries cannot be edited or erased.
+      </h1>
+    </div>
+
+    <div
+      class="rectangle-button-holding-container-inner"
+      style="
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+      "
+    >
+      <a
+        style="width: 50%; display: flex; margin-top: 1vh"
+        href="/journals/add?type=personal"
+      >
+        <ui-rectangle-img-button
+          [buttonInfo]="addJournalButton"
+          (buttonClicked)="addJournal()"
+        ></ui-rectangle-img-button>
+      </a>
+      <h1
+        style="
+          text-decoration: underline;
+          margin-top: 2px;
+          font-size: 25px;
+          margin-top: 2vh;
+        "
+      >
+        JOURNAL ENTRIES
+      </h1>
+    </div>
+
+    <div
+      class="journal-entries-holding-container"
+      style="
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      "
+    >
+      <div
+        class="journal-list-item"
+        style="display: flex; width: 100%"
+        *ngFor="let journal of personalJournalEntries"
+      >
+        <ui-journal-list-item
+          [journalInfo]="journal"
+          (journalClicked)="journalClicked($event)"
+        ></ui-journal-list-item>
+      </div>
+    </div>
+  </div>
+  <div
+    class="app-nav-menu"
+    style="background-color: rgb(0, 0, 0); width: 100%; height: 12%"
+  >
+    <ui-app-footer></ui-app-footer>
+  </div>
+</div>

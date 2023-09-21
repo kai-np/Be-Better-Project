@@ -1,0 +1,7 @@
+{
+  "name": "Be Better App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

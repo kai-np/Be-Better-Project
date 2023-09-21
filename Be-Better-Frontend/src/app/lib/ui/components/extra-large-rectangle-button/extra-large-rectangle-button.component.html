@@ -1,0 +1,58 @@
+<a
+  class="challenge-list-item-holding-continer"
+  style="display: flex; width: 100%; height: min-content; text-decoration: none"
+  (click)="buttonClickedEmit()"
+>
+  <div
+    class="challenge-list-item-rectangle-container"
+    style="
+      display: flex;
+      width: 100%;
+      background-color: {{ buttonInfo.backgroundColour }};
+      margin: 1vh;
+      border-radius: 15px;
+      height: 15vh;
+      border: solid 3px {{ buttonInfo.borderColour }};
+    "
+  >
+    <div
+      class="challenge-list-item-rectangle-text-container"
+      style="
+        display: flex;
+        width: 70%;
+        align-items: center;
+
+        justify-content: center;
+      "
+    >
+      <h6
+        style="
+          color: white;
+          font-size: 4vh;
+          margin-left: 1vh;
+          margin-top: 0px;
+          margin-bottom: 0px;
+          text-decoration: none;
+        "
+      >
+        {{ buttonInfo.buttonText }}
+      </h6>
+    </div>
+
+    <div
+      class="challenge-list-item-rectangle-img-container"
+      style="
+        display: flex;
+        width: 30%;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <img
+        src="/assets/img/buttons/journals/{{ buttonInfo.imageName }}"
+        style="width: 11vh; height: 11vh"
+      />
+    </div>
+  </div>
+</a>

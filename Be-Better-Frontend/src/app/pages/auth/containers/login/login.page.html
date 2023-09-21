@@ -1,0 +1,98 @@
+<div
+  class="app-page-container"
+  style="
+    display: flex;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+  "
+>
+  <div
+    class="app-page-content"
+    style="
+      background-color: #2f2e41;
+      width: 100%;
+      height: 100%;
+      display: flex;
+
+      overflow: scroll;
+      flex-direction: column;
+    "
+  >
+    <div
+      class="journal-button-holding-container"
+      style="display: flex; width: 100%; height: 100%; flex-direction: column"
+    >
+      <div
+        style="
+          display: flex;
+          height: 30%;
+          background-color: white;
+          justify-content: center;
+        "
+      >
+        <img src="/assets/img/auth/login.png" />
+      </div>
+      <div
+        style="
+          display: flex;
+          height: 70%;
+          display: flex;
+          height: 70%;
+          flex-direction: column;
+          align-content: center;
+          align-items: center;
+          background-color: #ff748e;
+          color: black;
+        "
+      >
+        <h1>Welcome Back!</h1>
+        <h5 style="width: 80%; text-align: center">
+          Its time to hop back on the metaphorical horse of self improvement and
+          shoot your shot at making the world we live in a better place.
+        </h5>
+
+        <p style="font-family: 'Mouse'">Email Address</p>
+        <input class="auth-input" style="width: 70%" type="text" #email />
+
+        <p style="font-family: 'Mouse'">Password</p>
+        <input class="auth-input" style="width: 70%" type="text" #password />
+
+        <div
+          style="
+            width: 70%;
+            margin-top: 32px;
+            display: flex;
+            background-color: #557e8b;
+            outline: 4px #557e8b solid;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+          "
+          (click)="loginButtonClicked({email: email.value, password: password.value})"
+        >
+          <h2 style="margin-top: 10px; color: white">Login Now</h2>
+        </div>
+
+        <a
+          href="/auth/signup"
+          style="
+            width: 70%;
+            margin-top: 32px;
+            display: flex;
+            background-color: #557e8b;
+            outline: 4px #557e8b solid;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+          "
+        >
+          <h2 style="margin-top: 10px; color: white">Signup Instead</h2>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

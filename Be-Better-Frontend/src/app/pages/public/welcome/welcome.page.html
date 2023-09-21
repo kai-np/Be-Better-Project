@@ -1,0 +1,107 @@
+<ion-content>
+  <swiper
+    class="swiper-welcome"
+    #swiper
+    [config]="config"
+    (slideChange)="swiperSlideChanged($event)"
+    (reachEnd)="onLastSlide()"
+  >
+    <ng-template swiperSlide>
+      <img
+        src="/assets/img/intro/1.gif"
+        name="logo-ionic"
+        class="animate__animated animate__fadeInDown"
+      />
+
+      <h3 class="animate__animated animate__fadeInUp">
+        <ion-text color="white">What’s this app really about anyway?</ion-text>
+      </h3>
+      <p class="animate__animated animate__fadeInUp">
+        <ion-text color="white" style="font-family: 'Mouse'; font-size: 22px"
+          >Be better is all about you. Well not really but it is about helping
+          you become the best you, you can be.<br />
+          We’re not like the others, we won’t be doing yoga or meditating...
+          Instead we’ll be helping people, looking at life from a new
+          perspective, improving your self image, showing you how by being nice
+          to others you are being kind to yourself, and lots more. Society for
+          the most part is a bit f**cked, lets try change that together :)
+          <br />Next we’ll explain our main features.</ion-text
+        >
+      </p>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <img
+        src="/assets/img/intro/2.gif"
+        name="logo-ionic"
+        class="animate__animated animate__fadeInDown"
+      />
+
+      <h3 class="animate__animated animate__fadeInUp">
+        <ion-text color="white">CHALLENGES</ion-text>
+      </h3>
+      <p class="animate__animated animate__fadeInUp">
+        <ion-text color="white" style="font-family: 'Mouse'; font-size: 22px"
+          >Humans are great at minding their own business, in fact most of the
+          time they do’nt even see a stranger as a person. Todays society
+          supports this, and as a result we seldom connect with strangers or
+          even fully appreciate our own friends/family...
+
+          <br /><br />
+          LETS CHANGE THIS! Challenges will help guide you + remind you to
+          connect with others, make people smile, show your appreciation, and
+          soooo much more. Ultimately you will find that doing them, makes you
+          happy, other people happy and society a better place.
+        </ion-text>
+      </p>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <img
+        src="/assets/img/intro/3.gif"
+        name="logo-ionic"
+        class="animate__animated animate__fadeInDown"
+      />
+
+      <h3 class="animate__animated animate__fadeInUp">
+        <ion-text color="white">SELF CARE/ MY MIND</ion-text>
+      </h3>
+      <p class="animate__animated animate__fadeInUp">
+        <ion-text color="white" style="font-family: 'Mouse'; font-size: 22px"
+          >It can be very difficult to connect with others, or even see others,
+          when you don’t love yourself. The self care section has you covered.
+
+          <br /><br />
+          We have a selection of tools that may help you appreciate and love
+          yourself.
+        </ion-text>
+      </p>
+    </ng-template>
+  </swiper>
+</ion-content>
+
+<ion-footer
+  class="ion-padding-bottom-large animate__animated animate__fadeInUp"
+>
+  <ion-button
+    class="ion-margin"
+    expand="block"
+    size="large"
+    color="transparent"
+    (click)="nextSlide()"
+    *ngIf="!last_slide"
+  >
+    <ion-icon slot="end" name="arrow-forward-outline" size="large"></ion-icon>
+  </ion-button>
+  <ion-button
+    class="ion-margin"
+    expand="block"
+    size="large"
+    color="854af6"
+    style="background-color: #854af6 !important"
+    (click)="getStarted()"
+    *ngIf="last_slide"
+  >
+    Get started
+  </ion-button>
+</ion-footer>

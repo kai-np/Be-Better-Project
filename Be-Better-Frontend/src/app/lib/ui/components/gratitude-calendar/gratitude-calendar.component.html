@@ -1,0 +1,48 @@
+<div class="calendar-container">
+  <div class="calendar-header">
+    <div (click)="prevMonth()" class="arrow-button" style="margin-left: 1vw">
+      <img
+        style="width: 12px; max-width: none !important"
+        src="/assets/img/grat/left.png"
+      />
+    </div>
+    <select
+      [(ngModel)]="selectedMonth"
+      class="selector-option"
+      (change)="onMonthChange()"
+    >
+      <option *ngFor="let month of months; let i = index" [value]="i">
+        {{ month }}
+      </option>
+    </select>
+    <select
+      [(ngModel)]="selectedYear"
+      class="selector-option"
+      (change)="onYearChange()"
+    >
+      <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+    </select>
+    <div (click)="nextMonth()" class="arrow-button" style="margin-right: 1vw">
+      <img
+        style="width: 12px; max-width: none !important"
+        src="/assets/img/grat/right.png"
+      />
+    </div>
+  </div>
+  <div id="calendar" class="calendar">
+    <div
+      class="calendar-day"
+      *ngFor="let day of calendarDays; let i = index"
+      [ngClass]="{
+        'selected-day':
+          day.day === selectedDay &&
+          selectedYear === currentSelectedYear &&
+          selectedMonth === curentSelectedMonth
+      }"
+      (click)="onDayClick(i)"
+    >
+      <p class="day-text">{{ day.day }}</p>
+      <img *ngIf="day.image" [src]="day.image" alt="Image" />
+    </div>
+  </div>
+</div>

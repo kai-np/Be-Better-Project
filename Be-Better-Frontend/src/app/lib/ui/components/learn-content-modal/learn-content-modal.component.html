@@ -1,0 +1,119 @@
+<div class="modal-holding-outer-container" (click)="closeModal()" style="">
+  <div
+    class="modal-holding-container"
+    (click)="$event.stopPropagation()"
+    style="background-color: #2f2e41"
+  >
+    <h1
+      style="
+        text-decoration: underline;
+        font-size: 40px;
+        margin-top: 15px;
+        color: white;
+      "
+    >
+      {{ learnContentEntry.entryTitle }}
+    </h1>
+
+    <div
+      class="journal-entries-holding-container"
+      style="
+        max-height: 60vh;
+        overflow: scroll;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        padding-right: 10px;
+        padding-left: 10px;
+        color: white;
+      "
+    >
+      <h1 class="learn-subheading">Overview</h1>
+      <p>
+        {{ learnContentEntry.entryOverview }}
+      </p>
+
+      <h1 class="learn-subheading">About</h1>
+      <p>
+        {{ learnContentEntry.entryAbout }}
+      </p>
+
+      <h1 class="learn-subheading">Clinical Info</h1>
+      <p>
+        {{ learnContentEntry.entryClinically }}
+      </p>
+
+      <h1 class="learn-subheading">Tips</h1>
+      <p>
+        {{ learnContentEntry.entryTips }}
+      </p>
+
+      <div
+        class="learn-entry-links"
+        *ngIf="learnContentEntry.entryLinks.length > 0"
+        style="width: 80%;"
+      >
+        <h1 class="learn-subheading">Interesting Reads</h1>
+
+        <div
+          class="learn-entry-link-item"
+          style="margin-top: 5px;"
+          *ngFor="let link of learnContentEntry.entryLinks"
+        >
+          <a href="{{ link.linkURL }}" target="_blank">
+            <ui-basic-text-button
+              [buttonInfo]="{
+                buttonText: link.linkName,
+                backgroundColour: 'green',
+                buttonName: link.linkName
+              }"
+            >
+            </ui-basic-text-button
+          ></a>
+        </div>
+      </div>
+
+      <div
+        class="learn-entry-videos"
+        *ngIf="learnContentEntry.entryLinks.length > 0"
+        style="width: 80%;"
+      >
+        <h1 class="learn-subheading">Visual Learning</h1>
+
+        <div
+          class="learn-entry-video-item"
+          style="margin-top: 5px;"
+          *ngFor="let video of learnContentEntry.entryVideos"
+        >
+          <a href="{{ video.videoURL }}" target="_blank">
+            <ui-basic-text-button
+              [buttonInfo]="{
+                buttonText: video.videoName,
+                backgroundColour: 'purple',
+                buttonName: video.videoName
+              }"
+            >
+            </ui-basic-text-button
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="ui-modal-buttons-holding-container"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="ui-modal-small-button" style="padding-left: 2vh"></div>
+    <div class="ui-modal-big-button">
+      <ui-img-button
+        [buttonInfo]="backToDash"
+        [buttonSize]="'large'"
+        (buttonClicked)="buttonClicked($event)"
+      ></ui-img-button>
+    </div>
+    <div class="ui-modal-small-button" style="padding-right: 2vh"></div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.egheader {
+  color: black;
+}
+:host {
+  width: 100%;
+}
+
+.auth-input {
+  width: 70%;
+  height: 10%;
+  font-family: "Mouse";
+  background-color: white;
+  color: black;
+  outline: 4px #557e8b solid;
+  border: none;
+  text-align: center;
+}
+
+.center-h3-heading {
+  display: flex;
+  width: 100%;
+  height: min-content;
+  align-items: center;
+  justify-content: center;
+}

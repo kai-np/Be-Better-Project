@@ -1,0 +1,124 @@
+<div
+  class="modal-holding-outer-container"
+  (click)="closeModal()"
+  style="justify-content: space-evenly"
+>
+  <div
+    class="modal-holding-container"
+    (click)="$event.stopPropagation()"
+    style="
+      background-color: #f68f56;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: white;
+      border-bottom-right-radius: 49px;
+      border-bottom-left-radius: 49px;
+      padding-bottom: 0px;
+      display: flex;
+      width: 100%;
+    "
+  >
+    <h1 style="text-decoration: underline; font-size: 28px">MY FRIENDS</h1>
+
+    <div style="display: flex; width: 100%">
+      <div style="display: flex; width: 33.33%; justify-content: center">
+        <div (click)="changePage('allFriends')" class="mbutton">
+          All Friends
+        </div>
+      </div>
+
+      <div style="display: flex; width: 33.33%; justify-content: center">
+        <div (click)="changePage('pendingFriends')" class="mbutton">
+          Invites
+        </div>
+      </div>
+
+      <div style="display: flex; width: 33.33%; justify-content: center">
+        <div (click)="changePage('addFriend')" class="mbutton">Add Friend</div>
+      </div>
+    </div>
+
+    <div class="holding-container-content" style="display: flex; width: 100%">
+      <div
+        *ngIf="activePage === 'allFriends'"
+        class="all-friends-list"
+        style="
+          display: flex;
+          width: 100%;
+          margin-top: 2vh;
+          flex-direction: column;
+          margin-bottom: 2vh;
+        "
+      >
+        <div *ngFor="let friend of activeFriends">
+          <ui-friends-list-item
+            (friendClicked)="activeFriendCLicked($event)"
+            [pendingMode]="false"
+            [friendInfo]="friend"
+          ></ui-friends-list-item>
+        </div>
+      </div>
+      <div
+        *ngIf="activePage === 'pendingFriends'"
+        class="all-friends-list"
+        style="
+          display: flex;
+          width: 100%;
+          margin-top: 2vh;
+          flex-direction: column;
+          margin-bottom: 2vh;
+        "
+      >
+        <div *ngFor="let friend of pendingFriends">
+          <ui-friends-list-item
+            [pendingMode]="true"
+            [friendInfo]="friend"
+          ></ui-friends-list-item>
+        </div>
+      </div>
+      <div
+        *ngIf="activePage === 'addFriend'"
+        class="all-friends-list"
+        style="
+          display: flex;
+          width: 100%;
+          margin-top: 2vh;
+          flex-direction: column;
+          margin-bottom: 2vh;
+          align-items: center;
+          align-content: center;
+        "
+      >
+        <h1 style="text-decoration: underline; font-size: 38px; margin: 0">
+          Add Friend
+        </h1>
+        <h2 style="text-decoration: underline">Enter friend code</h2>
+        <h4>Enter your friends invite code to add them.</h4>
+        <input class="small-text-input" type="text" #friendCode />
+
+        <ui-rectangle-img-button
+          [buttonInfo]="addFriendButton"
+          style="width: 50% !important"
+          (buttonClicked)="addFriend(friendCode.value)"
+        ></ui-rectangle-img-button>
+
+        <h2 style="text-decoration: underline">My friend code</h2>
+        <h4>Share this code to let people add you.</h4>
+        <input
+          class="small-text-input"
+          type="text"
+          value="{{ usersFriendCode }}"
+          disabled
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="ui-modal-buttons-holding-container"
+  (click)="$event.stopPropagation()"
+>
+  <div class="ui-modal-small-button" style="padding-left: 2vh"></div>
+  <div class="ui-modal-big-button"></div>
+  <div class="ui-modal-small-button" style="padding-right: 2vh"></div>
+</div>

@@ -1,0 +1,109 @@
+<div
+  *ngIf="config.mode === 'create'"
+  style="
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    background-color: #854e77;
+    padding-bottom: 2vh;
+  "
+>
+  <h5 style="font-size: 25px">Today I am greatfull for...</h5>
+  <input class="small-text-input" type="text" #g1 />
+  <input class="small-text-input" type="text" #g2 />
+  <input class="small-text-input" type="text" #g3 />
+  <h5 style="font-size: 25px">Overall today I was</h5>
+
+  <div style="width: 100%; display: flex">
+    <div
+      *ngFor="let mood of selectableEmotions"
+      style="
+        display: flex;
+        width: 20%;
+        flex-direction: column;
+        align-items: center;
+      "
+    >
+      <img
+        (click)="moodSelected(mood.name)"
+        [ngClass]="selectedMood === mood.name ? 'mood-selected-img' : 'na'"
+        src="/assets/img/grat/{{ mood.name }}.png"
+        style="width: 50px; height: 50px"
+      />
+      <h6
+        [ngClass]="selectedMood === mood.name ? 'mood-selected' : 'na'"
+        style="margin-top: 8px; font-size: 20px"
+        (click)="moodSelected(mood.name)"
+      >
+        {{ mood.name.toUpperCase() }}
+      </h6>
+    </div>
+  </div>
+
+  <button class="mbutton" (click)="saveJournal([g1.value, g2.value, g3.value])">
+    Save Journal
+  </button>
+</div>
+<div
+  *ngIf="config.mode === 'view'"
+  style="
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    background-color: #854e77;
+    padding-bottom: 2vh;
+  "
+>
+  <h5 style="font-size: 25px">
+    On {{ gratitudeEntry.day }}/{{ gratitudeEntry.month }}/{{
+      gratitudeEntry.year
+    }}
+    you were gratefull for:
+  </h5>
+  <input
+    class="small-text-input"
+    type="text"
+    value="{{ gratitudeEntry.textEntries[0] }}"
+    disabled
+  />
+  <input
+    class="small-text-input"
+    type="text"
+    value="{{ gratitudeEntry.textEntries[1] }}"
+    disabled
+  />
+  <input
+    class="small-text-input"
+    type="text"
+    value="{{ gratitudeEntry.textEntries[2] }}"
+    disabled
+  />
+  <h5 style="font-size: 25px">You were feeling:</h5>
+
+  <div style="width: 100%; display: flex">
+    <div
+      style="
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+      "
+    >
+      <img
+        src="/assets/img/grat/{{ gratitudeEntry.emotion }}.png"
+        style="width: 50px; height: 50px"
+      />
+      <h6 style="margin-top: 8px; font-size: 20px">
+        {{ gratitudeEntry.emotion }}
+      </h6>
+    </div>
+  </div>
+
+  <button class="mbutton" (click)="backToToday()">Back to today</button>
+</div>

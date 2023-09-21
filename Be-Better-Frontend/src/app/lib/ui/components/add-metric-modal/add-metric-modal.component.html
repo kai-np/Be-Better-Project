@@ -1,0 +1,91 @@
+<div class="modal-holding-outer-container" (click)="closeModal()" style="">
+  <div
+    class="modal-holding-container"
+    (click)="$event.stopPropagation()"
+    style="background-color: #BA3636; padding-left: 10px;
+    padding-right: 10px; color: white;"
+  >
+    <img
+      src="/assets/img/health/weight.png"
+      style="width: 100px; margin-top: 10px"
+   
+    />
+    <h1 style="text-decoration: underline; margin-top: 2px">ADD METRIC</h1>
+  
+    <h4 style="margin-top: 2px">
+      This is not a dieting app... Your weight ultimately means nothing and we despise societies “perfect body” idea. You are beautiful and your size does not ever change that.  However, being under/over weight does carry health risks. Therefore maintaining a healthy BMI should be a goal. That’s all we track... 
+You can update your weight/height anytime.  
+    </h4>
+
+    <div style="display: flex; width: 100%;">
+      <div style="width:50%; display: flex;     flex-direction: column;
+      align-items: center;
+      text-align: center;">
+        <h5
+        style="text-align: left; margin-top: 0px; margin-bottom: 2px; "
+      >
+        Weight (kg)
+      </h5>
+      <input
+        type="text"
+        style="width: 80%; color: white;"
+        class="small-text-input"
+        placeholder="e.g. 82"
+        #userWeight
+      />
+      </div>
+  
+      
+      <div style="width:50%; display: flex;     flex-direction: column;
+      align-items: center;
+      text-align: center;">
+        <h5
+        style="text-align: left; margin-top: 0px; margin-bottom: 2px; "
+      >
+        Height (m)
+      </h5>
+      <input
+        type="text"
+        style="width: 80%;  color: white;"
+        class="small-text-input"
+        placeholder= "e.g. 1.6"
+        #userHeight
+      />
+      </div>
+    </div>
+ 
+    
+   
+  </div>
+  <div
+    class="ui-modal-buttons-holding-container"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="ui-modal-small-button" style="padding-left: 2vh">
+      <ui-img-button
+        [buttonInfo]="cancelButton"
+        [buttonSize]="'small'"
+        (buttonClicked)="buttonClicked($event)"
+      ></ui-img-button>
+    </div>
+    <div class="ui-modal-big-button">
+      <ui-img-button
+        [buttonInfo]="saveButton"
+        [buttonSize]="'large'"
+        (buttonClicked)="
+          buttonClicked($event, {
+           userWeight: userWeight.value,
+           userHeight: userHeight.value
+          })
+        "
+      ></ui-img-button>
+    </div>
+    <div class="ui-modal-small-button" style="padding-right: 2vh">
+      <ui-img-button
+        [buttonInfo]="learnMoreButton"
+        [buttonSize]="'small'"
+        (buttonClicked)="buttonClicked($event)"
+      ></ui-img-button>
+    </div>
+  </div>
+</div>

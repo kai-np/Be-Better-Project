@@ -1,0 +1,36 @@
+<a
+  class="image-button-holding-continer"
+  style="
+    display: flex;
+    width: 100%;
+    height: min-content;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 1vh;
+  "
+  *ngIf="buttonSize === 'default'"
+  (click)="buttonClickedEmit(buttonInfo.buttonName)"
+>
+  <div
+    class="image-button-circle-container"
+    style="
+      display: flex;
+      width: 18vh;
+      height: 18vh;
+      place-content: center;
+      align-content: center;
+      align-items: center;
+      background-color: {{ buttonInfo.backgroundColour }};
+      border: solid {{ buttonInfo.borderColour }} 3px;
+      border-radius: 120px;
+      justify-content: center;
+    "
+  >
+    <img
+      src="/assets/img/buttons/shelf/{{ buttonInfo.imageName }}"
+      style="width: 8vh; height: 8vh; margin-top: -4vh"
+    />
+  </div>
+  <h6 style="margin-top: -6vh; color: white">{{ buttonInfo.buttonText }}</h6>
+</a>

@@ -1,0 +1,42 @@
+<a
+  class="challenge-list-item-holding-continer"
+  style="display: flex; width: 100%; height: min-content; text-decoration: none"
+  href="/journals/view?id={{ journalInfo.journalEntryID }}"
+>
+  <div
+    class="challenge-list-item-rectangle-container"
+    style="
+      display: flex;
+      width: 100%;
+      background-color: #921995;
+      margin: 1vh;
+      border-radius: 15px;
+      height: 15vh;
+      border: solid 3px white;
+    "
+  >
+    <div
+      class="challenge-list-item-rectangle-text-container"
+      style="
+        display: flex;
+        width: 100%;
+        align-items: center;
+
+        justify-content: center;
+      "
+    >
+      <h6
+        style="
+          color: white;
+          font-size: 4vh;
+          margin-left: 1vh;
+          margin-top: 0px;
+          margin-bottom: 0px;
+          text-decoration: none;
+        "
+      >
+        {{ journalInfo.journalTitle }}
+      </h6>
+    </div>
+  </div>
+</a>

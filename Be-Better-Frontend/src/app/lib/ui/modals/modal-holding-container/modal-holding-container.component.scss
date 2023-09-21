@@ -1,0 +1,15 @@
+.egheader {
+  color: black;
+}
+:host {
+  width: 100%;
+  --background: #1212126b !important;
+  --ion-background-color: rgb(18 18 18 / 48%) !important;
+}
+
+body {
+  --ion-background-color: rgb(18 18 18 / 48%) !important;
+}
+ion-content {
+  --ion-background-color: rgb(18 18 18 / 48%) !important;
+}

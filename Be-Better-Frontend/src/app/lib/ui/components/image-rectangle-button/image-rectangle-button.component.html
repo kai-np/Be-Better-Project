@@ -1,0 +1,106 @@
+<a
+  class="image-button-holding-continer"
+  style="display: flex; width: 100%; height: min-content"
+  (click)="buttonClickedEmit(buttonInfo.buttonName)"
+>
+  <div
+    class="image-button-rectangle-container"
+    *ngIf="!buttonInfo.active"
+    style="
+      display: flex;
+      width: 100%;
+      background-color: {{ buttonInfo.backgroundColour }};
+      border: solid {{ buttonInfo.borderColour }} 3px;
+      border-radius: 15px;
+      height: 7vh;
+    "
+  >
+    <div
+      class="image-button-rectangle-text-container"
+      style="
+        display: flex;
+        width: 70%;
+        align-items: center;
+
+        justify-content: center;
+      "
+    >
+      <h6
+        style="
+          color: white;
+          font-size: 3vh;
+          margin-top: 0px;
+
+          margin-bottom: 0px;
+        "
+      >
+        {{ buttonInfo.buttonText }}
+      </h6>
+    </div>
+
+    <div
+      class="image-button-rectangle-img-container"
+      style="
+        display: flex;
+        width: 30%;
+        align-content: center;
+        align-items: center;
+      "
+    >
+      <img
+        src="/assets/img/buttons/shelf/{{ buttonInfo.imageName }}"
+        style="width: 5vh; height: 5vh"
+      />
+    </div>
+  </div>
+  <div
+    class="image-button-rectangle-container"
+    *ngIf="buttonInfo.active"
+    style="
+      display: flex;
+      width: 100%;
+      background-color: {{ buttonInfo.backgroundColour }};
+      outline: solid {{ buttonInfo.borderColour }} 3px;
+      border-radius: 15px;
+      height: 7vh;
+    "
+  >
+    <div
+      class="image-button-rectangle-text-container"
+      style="
+        display: flex;
+        width: 70%;
+        align-items: center;
+
+        justify-content: center;
+      "
+    >
+      <h6
+        style="
+          color: white;
+          font-size: 3vh;
+          margin-top: 0px;
+
+          margin-bottom: 0px;
+        "
+      >
+        {{ buttonInfo.buttonText }}
+      </h6>
+    </div>
+
+    <div
+      class="image-button-rectangle-img-container"
+      style="
+        display: flex;
+        width: 30%;
+        align-content: center;
+        align-items: center;
+      "
+    >
+      <img
+        src="/assets/img/buttons/shelf/{{ buttonInfo.imageName }}"
+        style="width: 5vh; height: 5vh"
+      />
+    </div>
+  </div>
+</a>

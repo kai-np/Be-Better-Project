@@ -1,0 +1,178 @@
+<div
+  class="app-page-container"
+  style="
+    display: flex;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+  "
+>
+  <div class="app-header-bar" style="height: 8%; width: 100%; display: flex">
+    <ui-page-header
+      [pageName]="'Goals'"
+      [pageColour]="'#2D2D2D'"
+    ></ui-page-header>
+  </div>
+  <div
+    class="app-page-content"
+    style="
+      background-color: #a6eac5;
+      width: 100%;
+      height: 80%;
+      display: flex;
+
+      overflow: scroll;
+      flex-direction: column;
+    "
+  >
+    <div
+      class="rectangle-button-holding-container"
+      style="display: flex; width: 100%; margin-top: 2vh"
+    >
+      <div
+        class="rectangle-button-holding-container-inner"
+        style="display: flex; width: 50%; justify-content: center"
+      >
+        <ui-rectangle-img-button
+          [buttonInfo]="addGoalButton"
+          (buttonClicked)="addGoalButtonClicked()"
+        ></ui-rectangle-img-button>
+      </div>
+
+      <div
+        class="rectangle-button-holding-container-inner"
+        style="display: flex; width: 50%; justify-content: center"
+      >
+        <ui-rectangle-img-button
+          [buttonInfo]="viewCompletedGoals"
+          (buttonClicked)="toggleShowCompleted()"
+        ></ui-rectangle-img-button>
+      </div>
+    </div>
+
+    <div
+      *ngIf="!showCompleted"
+      class="goal-holding-section"
+      style="display: flex; width: 100%; flex-direction: column"
+    >
+      <div
+        class="center-h3-heading"
+        style="margin-top: 1vh; margin-bottom: -1.5vh"
+      >
+        <h3 style="color: rgb(0, 0, 0)">Standard Goals</h3>
+      </div>
+
+      <ui-goals-grid-container
+        [gridData]="defaultGoalGridInfo"
+        [hideExtras]="true"
+        (goalClicked)="viewGoalModal($event)"
+      ></ui-goals-grid-container>
+    </div>
+
+    <div
+      *ngIf="!showCompleted"
+      class="goal-holding-section"
+      style="
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        margin-top: -2vh;
+      "
+    >
+      <div
+        class="center-h3-heading"
+        style="margin-top: 1vh; margin-bottom: -1.5vh"
+      >
+        <h3 style="color: rgb(0, 0, 0)">Short Term Goals</h3>
+      </div>
+
+      <ui-goals-grid-container
+        [gridData]="shortTermGoalGridInfo"
+        [hideExtras]="true"
+        (goalClicked)="viewGoalModal($event)"
+      ></ui-goals-grid-container>
+    </div>
+
+    <div
+      *ngIf="!showCompleted"
+      class="goal-holding-section"
+      style="
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        margin-top: -2vh;
+      "
+    >
+      <div
+        class="center-h3-heading"
+        style="margin-top: 1vh; margin-bottom: -1.5vh"
+      >
+        <h3 style="color: rgb(0, 0, 0)">Long Term Goals</h3>
+      </div>
+
+      <ui-goals-grid-container
+        [gridData]="longTermGoalGridInfo"
+        [hideExtras]="true"
+        (goalClicked)="viewGoalModal($event)"
+      ></ui-goals-grid-container>
+    </div>
+
+    <div
+      *ngIf="!showCompleted"
+      class="goal-holding-section"
+      style="
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        margin-top: -2vh;
+      "
+    >
+      <div
+        class="center-h3-heading"
+        style="margin-top: 1vh; margin-bottom: -1.5vh"
+      >
+        <h3 style="color: rgb(0, 0, 0)">Fitness Goals</h3>
+      </div>
+
+      <ui-goals-grid-container
+        [gridData]="fitnessGoalGridInfo"
+        [hideExtras]="true"
+        (goalClicked)="viewGoalModal($event)"
+      ></ui-goals-grid-container>
+    </div>
+
+    <div
+      *ngIf="showCompleted"
+      class="goal-holding-section"
+      style="
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        margin-top: -2vh;
+      "
+    >
+      <div
+        class="center-h3-heading"
+        style="margin-top: 1vh; margin-bottom: -1.5vh"
+      >
+        <h3 style="color: rgb(0, 0, 0)">Completed Goals</h3>
+      </div>
+
+      <ui-goals-grid-container
+        [gridData]="completeGoalGridInfo"
+        [hideExtras]="true"
+        (goalClicked)="viewGoalModal($event)"
+      ></ui-goals-grid-container>
+    </div>
+    <div class="filtered-challenge-list" style="margin-top: 1vh"></div>
+  </div>
+  <div
+    class="app-nav-menu"
+    style="background-color: rgb(0, 0, 0); width: 100%; height: 12%"
+  >
+    <ui-app-footer></ui-app-footer>
+  </div>
+</div>

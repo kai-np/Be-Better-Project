@@ -1,0 +1,58 @@
+.egheader {
+  color: black;
+}
+:host {
+  width: 100%;
+  --background: #1212126b !important;
+  --ion-background-color: rgb(18 18 18 / 48%) !important;
+}
+
+body {
+  --ion-background-color: rgb(18 18 18 / 48%) !important;
+}
+ion-content {
+  --ion-background-color: rgb(18 18 18 / 48%) !important;
+}
+
+.large-text-input {
+  width: 80%;
+  border-radius: 10px;
+  padding: 5px;
+  border: solid white 1px;
+  background-color: #c39317;
+  font-family: "Mouse";
+  overflow-wrap: break-word;
+  overflow: visible;
+  height: 15%;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.small-text-input {
+  width: 80%;
+  border-radius: 10px;
+  padding: 5px;
+  border: solid white 1px;
+  background-color: #5b3dd4;
+  font-family: "Mouse";
+  overflow-wrap: break-word;
+  text-align: center;
+  overflow: visible;
+  height: auto;
+  text-overflow: ellipsis;
+}
+
+.ui-modal-small-button {
+  margin-top: -1vh;
+  display: flex;
+  width: 30%;
+}
+.ui-modal-big-button {
+  display: flex;
+  width: 40%;
+}
+.ui-modal-buttons-holding-container {
+  width: 80%;
+  display: flex;
+  margin-top: -15vh;
+}

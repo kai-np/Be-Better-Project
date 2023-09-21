@@ -1,0 +1,133 @@
+<div class="modal-holding-outer-container" (click)="closeModal()" style="">
+  <div
+    class="modal-holding-container"
+    (click)="$event.stopPropagation()"
+    style="background-color: #f68f56; padding-left: 10px;
+    padding-right: 10px; color: white;"
+  >
+    <img
+      src="/assets/img/health/weight.png"
+      style="width: 100px; margin-top: 10px"
+    />
+    <h1 style="text-decoration: underline; margin-top: 2px">
+      LOG EXERCISE ACTIVITY
+    </h1>
+
+    <h2 style="margin-top: 2px">
+      Easily keep track of your exercise activities and work towards your goals!
+    </h2>
+
+    <h5 style="text-decoration: underline; margin-top: 0px">Excercise Type</h5>
+    <select #activityType style="font-size: 19px" class="selector-option">
+      <option name="input" value="run">Run</option>
+      <option name="input" value="yoga">Yoga</option>
+      <option name="input" value="gym">Gym</option>
+      <option name="input" value="hike">Hike</option>
+      <option name="input" value="cycle">Cycle</option>
+      <option name="input" value="other">Other</option>
+    </select>
+
+    <h5 style="text-decoration: underline; margin-top: 5px">Activity Title</h5>
+    <input
+      type="text"
+      class="small-text-input"
+      style=" background-color: black; color: white;"
+      placeholder="Hiked table mountain"
+      #activityTitle
+    />
+
+    <div
+      style="display: flex; width: 90%; margin-top: 10px; margin-bottom: 10px"
+    >
+      <div
+        style="
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        "
+      >
+        <h5 style="text-align: left; margin-top: 0px; margin-bottom: 2px">
+          Time Spent (min)
+        </h5>
+        <input
+          type="text"
+          style="width: 80%;  background-color: black; color: white;"
+          class="small-text-input"
+          placeholder="30"
+          #activityTimeSpent
+        />
+      </div>
+
+      <div
+        style="
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        "
+      >
+        <h5 style="text-align: left; margin-top: 0px; margin-bottom: 2px">
+          Metric (optional)
+        </h5>
+        <input
+          type="text"
+          style="width: 80%;  background-color: black; color: white; "
+          class="small-text-input"
+          placeholder="5KM"
+          #activityMetric
+        />
+      </div>
+    </div>
+
+    <h5 style="text-decoration: underline; margin-top: 5px">DESCRIPTION</h5>
+    <textarea
+      class="large-text-input"
+      style="
+        border: 1px #ffffff solid;
+        background-color: black;
+        color: white;
+        font-size: 19px;
+      "
+      value=""
+      placeholder="Meditate for 20 minutes... go for a walk..."
+      #activityDescription
+    ></textarea>
+  </div>
+  <div
+    class="ui-modal-buttons-holding-container"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="ui-modal-small-button" style="padding-left: 2vh">
+      <ui-img-button
+        [buttonInfo]="cancelButton"
+        [buttonSize]="'small'"
+        (buttonClicked)="buttonClicked($event)"
+      ></ui-img-button>
+    </div>
+    <div class="ui-modal-big-button">
+      <ui-img-button
+        [buttonInfo]="logActivityButton"
+        [buttonSize]="'large'"
+        (buttonClicked)="
+          buttonClicked($event, {
+            activityTitle: activityTitle.value,
+            activityType: activityType.value,
+            activityTimeSpent: activityTimeSpent.value,
+            activityMetric: activityMetric.value,
+            activityDescription: activityDescription.value
+          })
+        "
+      ></ui-img-button>
+    </div>
+    <div class="ui-modal-small-button" style="padding-right: 2vh">
+      <ui-img-button
+        [buttonInfo]="learnMoreButton"
+        [buttonSize]="'small'"
+        (buttonClicked)="buttonClicked($event)"
+      ></ui-img-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,140 @@
+<div
+  class="goals-grid-holding-container"
+  style="width: 100%; display: flex"
+  *ngIf="!hideExtras"
+>
+  <div
+    class="goals-grid-inner-holding-container"
+    style="width: 100%; display: flex; align-items: center;     flex-direction: column; justify-content: center; margin: 1vh; border-radius: 20px; background-color: {{
+      gridData.gridBackgroundColour
+    }};"
+  >
+    <div class="center-h3-heading">
+      <h3 style="color: white; margin: 1vh">{{ gridData.gridTitle }}</h3>
+    </div>
+    <div
+      class="goals-grid-goal-item"
+      style="display: flex; width: 100%"
+      *ngFor="let goal of gridData.gridGoals"
+    >
+      <ui-goal-list-item
+        [goalInfo]="goal"
+        (goalClicked)="goalClickedEmit($event)"
+      ></ui-goal-list-item>
+    </div>
+  </div>
+</div>
+
+<div
+  class="goals-grid-holding-container"
+  style="width: 100%; display: flex"
+  *ngIf="hideExtras"
+>
+  <div
+    class="goals-grid-inner-holding-container"
+    style="
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      margin: 1vh;
+      border-radius: 20px;
+    "
+  >
+    <div
+      class="goals-grid-goal-item"
+      style="display: flex; width: 100%"
+      *ngFor="let goal of gridData.gridGoals"
+    >
+      <ui-goal-list-item
+        [goalInfo]="goal"
+        (goalClicked)="goalClickedEmit($event)"
+      ></ui-goal-list-item>
+    </div>
+  </div>
+</div>
+<!-- 
+<a
+  class="challenge-list-item-holding-continer"
+  style="display: flex; width: 100%; height: min-content"
+  (click)="buttonClickedEmit()"
+>
+  <div
+    class="challenge-list-item-rectangle-container"
+    style="
+      display: flex;
+      width: 100%;
+      background-color: #f68f56;
+      margin: 1vh;
+      border-radius: 15px;
+      height: 8vh;
+    "
+  >
+    <div
+      class="challenge-list-item-rectangle-img-container"
+      style="
+        display: flex;
+        width: 15%;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <img
+        src="/assets/img/buttons/shelf/activity/{{ imgName }}"
+        style="width: 6vh; height: 6vh; margin-left: 1vh"
+      />
+    </div>
+
+    <div
+      class="challenge-list-item-rectangle-text-container"
+      style="display: flex; width: 50%; align-items: center"
+    >
+      <h6
+        style="
+          color: white;
+          font-size: 2.5vh;
+          margin-left: 2vh;
+          margin-top: 0px;
+          margin-bottom: 0px;
+        "
+      >
+        {{ activityInfo.excerciseTitle }}
+      </h6>
+    </div>
+
+    <div
+      class="challenge-list-item-rectangle-text-container"
+      style="display: flex; width: 25%; align-items: center"
+    >
+      <h6
+        style="
+          color: white;
+          font-size: 2.5vh;
+          margin-top: 0px;
+          margin-bottom: 0px;
+          padding: 6px;
+          background-color: #b87de5;
+          border-radius: 15px;
+        "
+      >
+        {{ activityInfo.dateAdded }}
+      </h6>
+    </div>
+
+    <div
+      class="challenge-list-item-rectangle-img-container"
+      style="
+        display: flex;
+        width: 20%;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <img src="/assets/img/buttons/shelf/r-arrow.png" style="height: 4vh" />
+    </div>
+  </div>
+</a>
+-->

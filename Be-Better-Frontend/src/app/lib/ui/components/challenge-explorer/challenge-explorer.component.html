@@ -1,0 +1,111 @@
+<div
+  class="modal-holding-outer-container"
+  (click)="closeModal()"
+  style="
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  "
+>
+  <div
+    class="modal-holding-container"
+    (click)="$event.stopPropagation()"
+    style="background-color: #940485"
+  >
+    <h1 style="text-decoration: underline; margin-top: 2px">
+      CHALLENGE EXPLORER
+    </h1>
+
+    <h4 style="margin-top: 2px">
+      Lorem ipsum djakjsdkj jsdka jd kjaldj lnnjnfoi nslkn mlskmklmlsmdlksmd!
+    </h4>
+    <div style="width: 80%; display: flex">
+      <div style="width: 33.33%">
+        <img
+          src="/assets/img/buttons/shelf/society.png"
+          (click)="filterButtonClicked('society')"
+          [ngClass]="{typebuttonactive : societyFilter, typebuttoninactive : !societyFilter}"
+          style="    width: 5vh;
+          height: 5vh;
+          border-radius: 45px;"
+        />
+      </div>
+      <div style="width: 33.33%">
+        <img
+          src="/assets/img/buttons/shelf/environment.png"
+          (click)="filterButtonClicked('environmental')"
+          [ngClass]="{typebuttonactive : environmentFilter, typebuttoninactive : !environmentFilter}"
+          style="    width: 5vh;
+          height: 5vh;
+          border-radius: 45px;"
+        />
+      </div>
+      <div style="width: 33.33%">
+        <img
+          src="/assets/img/buttons/shelf/personal.png"
+          (click)="filterButtonClicked('personal')"
+          [ngClass]="{typebuttonactive : personalFilter, typebuttoninactive : !personalFilter}"
+          style="    width: 5vh;
+          height: 5vh;
+          border-radius: 45px;"
+        />
+      </div>
+    </div>
+    <div
+      class="challenge-template-table-container"
+      style="
+        display: flex;
+        width: 90%;
+        border-radius: 30px;
+        background-color: black;
+        margin: 2vh;
+        border: solid 2px white;
+        flex-direction: column;
+        max-height: 30vh;
+        overflow: scroll;
+      "
+    >
+      <div
+        class="challenge-template-table-list-item"
+        style="display: flex; width: 100%; border-bottom: solid 2px white"
+        *ngFor="let challenge of visibleChallenges"
+      >
+        <h4 (click)="challengeTemplateClicked(challenge)" style="color: white" *ngIf="challenge.challengeTemplateID !== selectedChallengeTemplate.challengeTemplateID">
+          {{ challenge.challengeName }}
+        </h4>
+        <h4 (click)="challengeTemplateClicked(challenge)" style="color: #4BAE4F" *ngIf="challenge.challengeTemplateID === selectedChallengeTemplate.challengeTemplateID">
+          {{ challenge.challengeName }}
+        </h4>
+      </div>
+ 
+    </div>
+  </div>
+
+  <div
+    class="ui-modal-buttons-holding-container"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="ui-modal-small-button" style="padding-left: 2vh">
+      <ui-img-button
+        [buttonInfo]="cancelButton"
+        [buttonSize]="'small'"
+        (buttonClicked)="closeModal()"
+      ></ui-img-button>
+    </div>
+    <div class="ui-modal-big-button">
+      <ui-img-button
+        [buttonInfo]="startChallengeButton"
+        [buttonSize]="'large'"
+        (buttonClicked)="buttonClicked($event)"
+      ></ui-img-button>
+    </div>
+    <div class="ui-modal-small-button" style="padding-right: 2vh">
+      <ui-img-button
+        [buttonInfo]="randomChallengeButton"
+        [buttonSize]="'small'"
+        (buttonClicked)="buttonClicked($event)"
+      ></ui-img-button>
+    </div>
+  </div>
+</div>
